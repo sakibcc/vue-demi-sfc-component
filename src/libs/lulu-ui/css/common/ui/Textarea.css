@@ -1,0 +1,188 @@
+@charset "UTF-8";
+/**
+ *
+ * @Textarea.css
+ * @author xinxuzhang
+ * @create 15-06-17
+ * @edit   20-04-03 version edge
+ * @editor lennonover
+**/
+
+:root {
+    --ui-textarea-line-height: var(--ui-line-height, 20px);
+}
+
+textarea {
+    font-family: inherit;
+}
+
+textarea.ui-textarea,
+[is="ui-textarea"],
+.ui-textarea > textarea,
+textarea ~ .ui-textarea-count {
+    line-height: var(--ui-textarea-line-height);
+    padding: 9px 8px;
+    border: 1px solid var(--ui-border, #d0d0d5);
+    border-radius: var(--ui-radius, 4px);
+    background-color: var(--ui-white, #ffffff);
+    outline: none;
+    color: var(--ui-dark, #4c5161);
+    font-size: var(--ui-font, 14px);
+    transition: border-color var(--ui-animate-time, .2s), background-color var(--ui-animate-time, .2s);
+    word-break: break-all;
+    vertical-align: top;
+    box-sizing: border-box;
+    max-width: 100%;
+    resize: none;
+    overflow: auto;
+}
+
+textarea[resize] {
+    resize: both;
+}
+textarea[resize="vertical"] {
+    resize: vertical;
+}
+textarea[resize="horizontal"] {
+    resize: horizontal;
+}
+
+div.ui-textarea > textarea,
+textarea[width="100%"] {
+    width: 100%;
+}
+
+/* hover */
+.ui-textarea:hover,
+.ui-textarea > textarea:hover,
+[is="ui-textarea"]:hover,
+:hover > .ui-textarea-count {
+    border-color: var(--ui-dark-border, #ababaf);
+}
+
+/* focus */
+.ui-textarea:focus,
+.ui-textarea > textarea:focus,
+[is="ui-textarea"]:focus,
+:focus ~ .ui-textarea-count {
+    border-color: var(--ui-blue, #2a80eb);
+}
+
+/* textarea with count */
+.ui-textarea-x {
+    position: relative;
+    z-index: 0;
+    overflow: hidden;
+}
+span.ui-textarea-x {
+    display: inline-block;
+}
+.ui-textarea-x > textarea:only-child {
+    padding-bottom: 32px;
+}
+.ui-textarea-x > textarea:not(:only-child) {
+    padding-bottom: 0;
+    margin: 1px 1px 33px;
+    width: calc(100% - 2px);
+    border: 0;
+    background: none;
+}
+.ui-textarea-x > textarea {
+    display: block;
+    width: 100%;
+    /* for Firefox */
+    margin: 0;
+}
+
+textarea ~ .ui-textarea-count {
+    position: absolute;
+    left: 0; right: 0; bottom: 0; top: 0;
+    padding-bottom: 5px;
+    color: var(--ui-gray, #a2a9b6);
+    font-size: calc(var(--ui-font, 14px) - 2px);
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    z-index: -1;
+}
+.ui-textarea-count slash {
+    margin: 0 1px;
+}
+
+/* disabled */
+.ui-textarea:disabled,
+[is="ui-textarea"]:disabled,
+.ui-textarea > textarea:disabled,
+:disabled ~ .ui-textarea-count {
+    background-color: var(--ui-light, #f7f9fa);
+}
+.ui-textarea:read-only,
+[is="ui-textarea"]:read-only,
+.ui-textarea > textarea:read-only,
+:read-only ~ .ui-textarea-count {
+    background-color: var(--ui-white, #ffffff);
+}
+/* firefox */
+.ui-textarea:-moz-read-only,
+[is="ui-textarea"]:-moz-read-only,
+.ui-textarea > textarea:-moz-read-only,
+:-moz-read-only ~ .ui-textarea-count {
+    background-color: var(--ui-white, #ffffff);
+}
+
+.ui-textarea:disabled:hover,
+[is="ui-textarea"]:disabled:hover,
+.ui-textarea > textarea:disabled:hover,
+.ui-textarea-x:hover :disabled ~ .ui-textarea-count {
+    border-color: var(--ui-border, #d0d0d5);
+}
+
+.ui-textarea:read-only:hover,
+.ui-textarea:read-only:focus,
+[is="ui-textarea"]:read-only:hover,
+[is="ui-textarea"]:read-only:focus,
+.ui-textarea > textarea:read-only:hover,
+.ui-textarea > textarea:read-only:focus,
+:read-only ~ .ui-textarea-count:hover,
+:read-only ~ .ui-textarea-count:focus  {
+    border-color: var(--ui-border, #d0d0d5);
+}
+/* firefox */
+.ui-textarea:-moz-read-only:hover,
+.ui-textarea:-moz-read-only:focus,
+[is="ui-textarea"]:-moz-read-only:hover,
+[is="ui-textarea"]:-moz-read-only:focus,
+.ui-textarea > textarea:-moz-read-only:hover,
+.ui-textarea > textarea:-moz-read-only:focus   {
+    border-color: var(--ui-border, #d0d0d5);
+}
+
+textarea:read-only,
+textarea:disabled {
+    resize: none;
+}
+
+/* firefox */
+textarea:-moz-read-only {
+    resize: none;
+}
+/* error */
+.ui-textarea[is-error],
+[is="ui-textarea"][is-error],
+.ui-textarea > [is-error],
+[is-error] ~ .ui-textarea-count {
+    border-color: var(--ui-red, #eb4646) !important;
+}
+.ui-textarea-count > [is-error],
+.ui-textarea-count[is-error] {
+    color: var(--ui-red, #eb4646);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    textarea.ui-textarea,
+    [is="ui-textarea"],
+    .ui-textarea > textarea,
+    textarea ~ .ui-textarea-count {
+        transition: none;
+    }
+}

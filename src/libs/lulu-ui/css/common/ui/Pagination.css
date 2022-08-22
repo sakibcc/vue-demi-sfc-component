@@ -1,0 +1,13 @@
+/**
+ *
+ * @Pagination.css
+ * @author xboxyan
+ * @create 20-06-03
+ * @editd 21-06-25 by zhangxinxu
+**/
+
+ui-pagination:not(:defined),
+[is-pagination]:not([defined]){
+    display: flex;
+    height: 30px;
+}

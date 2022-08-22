@@ -1,0 +1,79 @@
+{
+  "name": "vue-demi-sfc-component",
+  "private": false,
+  "version": "0.0.1",
+  "type": "module",
+  "main": "./lib/vue-demi-sfc-component.umd.cjs",
+  "exports": {
+    ".": {
+      "import": "./lib/vue-demi-sfc-component.js",
+      "require": "./lib/vue-demi-sfc-component.umd.cjs"
+    }
+  },
+  "scripts": {
+    "postinstall": "node ./scripts/postinstall.mjs",
+    "dev": "vite",
+    "dev:3": "npm run switch:3 && vite --force",
+    "dev:2": "npm run switch:2 && vite",
+    "switch:2": "npx vue-demi-switch 2 vue2",
+    "switch:3": "npx vue-demi-switch 3 vue3",
+    "build:3": "npm run switch:3 && vue-tsc --noEmit && vite build",
+    "build:2": "npm run switch:2 && vue-tsc --noEmit && vite build",
+    "build": "rimraf lib && npm run build:2 && npm run build:3",
+    "preview": "vite preview",
+    "lint:fix": "eslint . --ext .js,.ts,.vue --fix",
+    "prepare": "husky install",
+    "pub": "npm publish --access=public"
+  },
+  "dependencies": {
+    "@vue/composition-api": "^1.7.0",
+    "vue-demi": "^0.13.8"
+  },
+  "files": [
+    "lib/*",
+    "scripts/*"
+  ],
+  "lint-staged": {
+    "*.{js,ts,vue,html}": [
+      "eslint --fix --color",
+      "git add"
+    ]
+  },
+  "peerDependencies": {
+    "@vue/composition-api": "^1.7.0",
+    "vue": "^2.0.0 || >=3.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@vue/composition-api": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@types/node": "^18.7.6",
+    "@typescript-eslint/parser": "^5.33.1",
+    "@vitejs/plugin-vue": "^3.0.3",
+    "autoprefixer": "^10.4.8",
+    "eslint": "^8.22.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-vue": "^9.3.0",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "postcss": "^8.4.16",
+    "postcss-import": "^14.1.0",
+    "postcss-nested": "^5.0.6",
+    "prettier": "2.7.1",
+    "rimraf": "^3.0.2",
+    "rollup-plugin-postcss": "^4.0.2",
+    "tailwindcss": "^3.1.8",
+    "typescript": "^4.6.4",
+    "vite": "^3.0.7",
+    "vite-plugin-vue2": "^2.0.2",
+    "vue": "2.6.14",
+    "vue-eslint-parser": "^9.0.3",
+    "vue-template-compiler": "2.6.14",
+    "vue-tsc": "^0.39.5",
+    "vue2": "npm:vue@2.6.14",
+    "vue3": "npm:vue@^3.2.36"
+  }
+}
