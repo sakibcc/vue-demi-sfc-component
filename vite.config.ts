@@ -14,7 +14,8 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': resolve('src'),
-      vue: isVue2 ? resolve('/node_modules/vue2') : resolve('/node_modules/vue3')
+      vue: isVue2 ? resolve('./node_modules/vue2') : resolve('./node_modules/vue3'),
+      '@vue/composition-api': resolve('./node_modules/@vue/composition-api')
     }
   },
   build: {
